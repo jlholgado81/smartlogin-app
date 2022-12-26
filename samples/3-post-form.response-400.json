@@ -1,0 +1,28 @@
+{
+    "title": "Working with dates",
+    "description": "Don't forget to use some user friendly date picker :)",
+    "required": [
+        "birthday",
+        "arrival_time"
+    ],
+    "properties": {
+        "birthday": {
+            "type": "string",
+            "format": "date",
+            "title": "Brithday",
+            "default": null,
+            "pattern": null,
+            "value": "2020-11-01",
+            "error": "18+ years required to travel alone"
+        },
+        "arrival_time": {
+            "type": "string",
+            "format": "datetime",
+            "title": "Flight arrival time",
+            "default": null,
+            "pattern": null,
+            "value": "2020-11-01T10:00:00Z",
+            "error": "We can't travel to the past yet we have many options for the comming future"
+        }
+    }
+}

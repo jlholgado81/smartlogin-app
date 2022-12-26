@@ -1,0 +1,15 @@
+{
+    "title": "Welcome to our website!",
+    "description": "Congratulations! Your user account has been created successful.",
+    "required": [],
+    "properties": {
+        "button1": {
+            "type": "button",
+            "format": null,
+            "title": "Redirect to HOME",
+            "pattern": null,
+            "value": "https://example.com",
+            "error": null
+        }
+    }
+}

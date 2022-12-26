@@ -1,0 +1,38 @@
+{
+    "title": "Welcome to challenge two!",
+    "description": "Please, tell us about your developer experience.",
+    "required": [
+        "years_of_experience",
+        "score",
+        "tos"
+    ],
+    "properties": {
+        "years_of_experience": {
+            "type": "integer",
+            "format": null,
+            "title": "Years of experience?",
+            "default": null,
+            "pattern": null,
+            "value": "1",
+            "error": "Value is an integer but string was found"
+        },
+        "score": {
+            "type": "number",
+            "format": "float",
+            "title": "Your total score?",
+            "default": null,
+            "pattern": null,
+            "value": 9.99,
+            "error": null
+        },
+        "tos": {
+            "type": "boolean",
+            "format": null,
+            "title": "Agree to terms and conditions",
+            "default": null,
+            "pattern": null,
+            "value": true,
+            "error": null
+        }
+    }
+}

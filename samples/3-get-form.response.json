@@ -1,0 +1,28 @@
+{
+    "title": "Working with dates",
+    "description": "Don't forget to use some user friendly date picker :)",
+    "required": [
+        "birthday",
+        "arrival_time"
+    ],
+    "properties": {
+        "birthday": {
+            "type": "string",
+            "format": "date",
+            "title": "Brithday",
+            "default": null,
+            "pattern": null,
+            "value": null,
+            "error": null
+        },
+        "arrival_time": {
+            "type": "string",
+            "format": "datetime",
+            "title": "Flight arrival time",
+            "default": null,
+            "pattern": null,
+            "value": null,
+            "error": null
+        }
+    }
+}

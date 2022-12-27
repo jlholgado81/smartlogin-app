@@ -34,15 +34,6 @@ export class FormGeneratorComponent implements OnChanges {
 
       this.fieldsData = [];
       for (let fieldStr of Object.keys(this.fields)) {
-        // if (field.type != 'checkbox') {
-        //   fieldsControls[field.name] = new FormControl(f.value || '', Validators.required)
-        // } else {
-        //   let opts = {};
-        //   for (let opt of field.options) {
-        //     opts[opt.key] = new FormControl(opt.value);
-        //   }
-        //   fieldsControls[field.name] = new FormGroup(opts)
-        // }
         const field: IField = this.fields[fieldStr];
         const fieldData: {
           name: string;

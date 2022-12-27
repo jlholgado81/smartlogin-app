@@ -10,7 +10,5 @@ import { IField } from '../../../../../core/models/form.model';
 })
 export class InputTextComponent {
   @Input() form: FormGroup;
-  @Input() field: IField;
-
-  constructor() {}
+  @Input() field: { name: string; configData: IField; required: boolean };
 }

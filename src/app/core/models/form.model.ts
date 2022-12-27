@@ -6,11 +6,7 @@ export interface IForm {
 }
 
 export interface IProperty {
-  email: IField;
-  firstName: IField;
-  lastName: IField;
-  telephone: IField;
-  about: IField;
+  [key: string]: IField;
 }
 
 export interface IField {
@@ -18,7 +14,7 @@ export interface IField {
   format: null | string;
   title: string;
   pattern: null | string;
-  value: null;
-  error: null;
+  value: null | string;
+  error: null | string;
   default?: null | string;
 }

@@ -6,10 +6,11 @@ import { FormGeneratorModule } from './shared/components/form-generator/form-gen
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
+import { FormComponent } from './core/components/form/form.component';
 
 @NgModule({
   imports: [BrowserModule, ReactiveFormsModule, FormGeneratorModule],
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent, HeaderComponent, FormComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

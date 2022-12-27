@@ -5,6 +5,12 @@
   ></app-header>
 
   <main>
-    <app-form [formSetupInfo]="data"></app-form>
+    <app-form
+      [formSetupInfo]="{
+        requiredFields: data.required,
+        fields: data.properties
+      }"
+      (formData)="sendData($event)"
+    ></app-form>
   </main>
 </section>

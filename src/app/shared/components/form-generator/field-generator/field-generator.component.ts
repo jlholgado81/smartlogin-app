@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { IField } from '../../../../core/models/form.model';
@@ -8,11 +8,7 @@ import { IField } from '../../../../core/models/form.model';
   templateUrl: './field-generator.component.html',
   styleUrls: ['./field-generator.component.css'],
 })
-export class FieldGeneratorComponent implements OnInit {
-  @Input() field: IField;
+export class FieldGeneratorComponent {
   @Input() form: FormGroup;
-
-  constructor() {}
-
-  ngOnInit() {}
+  @Input() field: { name: string; configData: IField; required: boolean };
 }

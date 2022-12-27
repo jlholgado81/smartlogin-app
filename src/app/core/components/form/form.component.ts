@@ -1,20 +1,25 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { IForm } from '../../models/form.model';
+import { IProperty } from '../../models/form.model';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  styleUrls: ['./form.component.css'],
 })
-export class FormComponent implements OnInit {
+export class FormComponent {
+  @Output() formData = new EventEmitter();
+  @Input() formSetupInfo: { requiredFields: string[]; fields: IProperty };
 
-  @Input() formSetupInfo: IForm;
-
-  constructor() { }
-
-  ngOnInit() {
-    
+  get requiredFields(): string[] {
+    return this.formSetupInfo.requiredFields;
   }
 
+  get fields(): IProperty {
+    return this.formSetupInfo.fields;
+  }
+
+  sendFormData(data: any): void {
+    this.formData.emit(data);
+  }
 }

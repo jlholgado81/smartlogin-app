@@ -1,19 +1,46 @@
-<div [formGroup]="form">
+<ng-container [formGroup]="form">
   <input
-    *ngIf="!field.multiline"
-    [attr.type]="field.type"
+    *ngIf="field.configData.format !== 'textarea'"
     class="form-control"
+    [attr.type]="field.configData.format"
     [id]="field.name"
-    [name]="field.name"
     [formControlName]="field.name"
   />
-  <!-- <textarea
-    *ngIf="field.multiline"
-    [class.is-invalid]="isDirty && !isValid"
-    [formControlName]="field.name"
-    [id]="field.name"
-    rows="9"
+
+  <textarea
+    *ngIf="field.configData.format === 'textarea'"
     class="form-control"
-    [placeholder]="field.placeholder"
-  ></textarea> -->
-</div>
+    rows="5"
+    [id]="field.name"
+    [formControlName]="field.name"
+  ></textarea>
+
+  <div class="alert alert-danger my-3 p-2" *ngIf="field.configData.error">
+    {{ field.configData.error }}
+  </div>
+
+  <div
+    *ngIf="
+      form.get(field.name).invalid &&
+      (form.get(field.name).dirty || form.get(field.name).touched)
+    "
+  >
+    <div *ngIf="form.get(field.name).errors['required']">
+      <div class="alert alert-danger my-3 p-2">
+        {{ field.configData.title }} is required
+      </div>
+    </div>
+
+    <div *ngIf="form.get(field.name).errors['pattern']">
+      <div class="alert alert-danger my-3 p-2">
+        {{ field.configData.title }} has invalid format
+      </div>
+      <small
+        >"{{ form.get(field.name).errors['pattern']['actualValue'] }}" does not
+        meet required pattern ({{
+          form.get(field.name).errors['pattern']['requiredPattern']
+        }}).</small
+      >
+    </div>
+  </div>
+</ng-container>

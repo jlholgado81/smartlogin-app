@@ -1,19 +1,31 @@
 <form
   (ngSubmit)="onSubmit.emit(this.form.value)"
   [formGroup]="form"
-  class="form-horizontal"
+  *ngIf="fieldsData.length > 1"
 >
-  <div *ngFor="let field of fields">
-    <field-builder [field]="field" [form]="form"></field-builder>
-  </div>
-  <div class="form-row"></div>
+  <ng-container *ngFor="let fieldData of fieldsData">
+    <app-field-generator
+      [form]="form"
+      [field]="fieldData"
+    ></app-field-generator>
+  </ng-container>
+
+  <p><strong class="text-danger">*</strong> Required</p>
+
   <div class="form-group row">
-    <div class="col-md-3"></div>
-    <div class="col-md-9">
+    <div class="col-sm-12 text-end">
       <button type="submit" [disabled]="!form.valid" class="btn btn-primary">
-        Save
+        SUBMIT
       </button>
-      <strong>Saved all values</strong>
     </div>
   </div>
 </form>
+
+<div *ngIf="fieldsData.length === 1">
+  <ng-container *ngFor="let fieldData of fieldsData">
+    <app-field-generator
+      [form]="form"
+      [field]="fieldData"
+    ></app-field-generator>
+  </ng-container>
+</div>
